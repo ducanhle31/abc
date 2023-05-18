@@ -16,7 +16,8 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import products from "../assets/fake-data/products";
 import { useParams } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
-
+  import { ToastContainer, toast } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col } from "reactstrap";
 
 import { useDispatch } from "react-redux";
@@ -69,6 +70,17 @@ const FoodDetails = () => {
     window.scrollTo(0, 0);
   }, [product]);
 
+   const notify = () =>
+     toast.success("Sản phẩm đã được thêm vào giỏ", {
+       position: "top-right",
+       autoClose: 1000,
+       hideProgressBar: true,
+       closeOnClick: false,
+       pauseOnHover: true,
+       draggable: true,
+       progress: undefined,
+       theme: "colored",
+     });
   return (
     <Helmet title={title}>
       <div className="breadcumb">
@@ -121,7 +133,7 @@ const FoodDetails = () => {
                   <del className="del">{convertMoney(del)}</del>
                 </p>
                 <p className="thuonghieu">
-                  Thương hiệu: <span>Đang cập nhật</span>  Tình trạng:
+                  Thương hiệu: <span>Đang cập nhật</span> Tình trạng:
                   <span>Còn hàng</span>
                 </p>
 
@@ -135,9 +147,11 @@ const FoodDetails = () => {
                   Gọi đặt mua: <span className="phonee">123456789</span> để
                   nhanh chóng đặt hàng
                 </h4>
-                <button onClick={addItem} className="addTOCart__btn">
-                  Thêm vào giỏ
-                </button>
+                <span onClick={notify}>
+                  <button onClick={addItem} className="addTOCart__btn">
+                    Thêm vào giỏ
+                  </button>
+                </span>
               </div>
             </Col>
 

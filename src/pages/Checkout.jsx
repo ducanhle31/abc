@@ -1,7 +1,11 @@
+import {  useSelector } from "react-redux";
+
+import {  useState } from "react";
+
+
 import "../styles/checkout.css";
-import { AiFillCheckCircle } from "react-icons/ai";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+
+
 import { Container, Row, Col } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
@@ -25,10 +29,6 @@ const Checkout = () => {
 
   const totalAmount = cartTotalAmount + Number(shippingCost);
 
-
-
-
-  
   const submitHandler = (e) => {
     e.preventDefault();
     const userShippingAddress = {
@@ -51,16 +51,7 @@ const Checkout = () => {
           <NavLink to="/">Trang chủ &gt;&gt;</NavLink>Thanh toán
         </p>
       </div>
-      <div className="checkoutMessage">
-        <div className="checkoutTitleContainer">
-          <AiFillCheckCircle className="checkoutIcon" />
-          <h3>Thank you for your order!</h3>
-        </div>
-        <span>
-          Your order is being processed and will be delivered as fast as
-          possible.
-        </span>
-      </div>
+
       <section>
         <Container>
           <Row className="checkoutp">
@@ -92,43 +83,27 @@ const Checkout = () => {
                     onChange={(e) => setEnterNumber(e.target.value)}
                   />
                 </div>
-                <div class="adress_customer">
-                  <select id="city" name="city">
-                    <option value="default">Chọn tỉnh</option>
-                  </select>
-                  <select id="districts" name="districts">
-                    <option value="default">Chọn huyện</option>
-                  </select>
-                  <select name="wards" id="wards">
-                    <option value="default">Chọn xã</option>
-                  </select>
-                </div>
+
                 <div className="form__group">
                   <input
                     type="text"
-                    placeholder="Thành phố"
+                    placeholder="Địa chỉ"
                     required
                     onChange={(e) => setEnterCountry(e.target.value)}
                   />
                 </div>
-                <div className="form__group">
-                  <input
-                    type="text"
-                    placeholder="City"
-                    required
-                    onChange={(e) => setEnterCity(e.target.value)}
-                  />
-                </div>
+            
+              
                 <div className="form__group">
                   <input
                     type="number"
-                    placeholder="Postal code"
+                    placeholder="Mã giảm giá"
                     required
                     onChange={(e) => setPostalCode(e.target.value)}
                   />
                 </div>
                 <button type="submit" className="addTOCart__btn">
-                 Thanh toán
+                  Thanh toán
                 </button>
               </form>
             </Col>
@@ -143,10 +118,7 @@ const Checkout = () => {
                 </h6>
                 <div className="checkout__total">
                   <h5 className="d-flex align-items-center justify-content-between">
-                    Tổng tiền :{" "}
-                    <span>
-                      {convertMoney(totalAmount)} 
-                    </span>
+                    Tổng tiền : <span>{convertMoney(totalAmount)}</span>
                   </h5>
                 </div>
               </div>

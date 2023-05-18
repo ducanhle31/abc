@@ -10,13 +10,10 @@
   line-height: 21.6px;
 }
 .checkoutp {
-  margin-bottom: 80px;
+margin: 80px 0; padding-top: 80px;
 }
-.checkoutIcon {
-  width: 2rem;
-  color: #4bb543;
-  height: 2rem;
-}
+
+
 .form__group input {
   color: black;
   font-size: 18px;
@@ -24,17 +21,10 @@
   justify-content: space-between;
   line-height: 21.6px;
 }
-.checkoutTitleContainer {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.7rem;
-}
+
 
 @media only screen and (max-width: 480px) {
-  .checkoutMessage {
-    margin: 1rem 1rem;
-  }
-  
+
 .form__group input {
  color: black;
   font-size: 18px;
@@ -42,13 +32,7 @@
   justify-content: space-between;
   line-height: 21.6px;
 }
-.form__group input placeholder{
- color: black;
-  font-size: 18px;
-  font-weight: 700;
-  justify-content: space-between;
-  line-height: 21.6px;
-}
+
 
 }
 .checkout__bill {

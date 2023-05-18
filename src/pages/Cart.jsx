@@ -11,6 +11,7 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
 
+
      function convertMoney(num) {
        return num.toLocaleString("it-IT", {
          style: "currency",
@@ -79,22 +80,61 @@ const Cart = () => {
 };
 
 const Tr = (props) => {
-  const { id, image01, title, price, quantity } = props.item;
+  const { id, image01, title, price, quantity, extraIngredients } = props.item;
   const dispatch = useDispatch();
 
-  const deleteItem = () => {
-    dispatch(cartActions.deleteItem(id));
+  const incrementItem = (event) => {
+    dispatch(
+      cartActions.addItem({
+        id,
+        title,
+        price,
+        image01,
+        extraIngredients,
+      })
+    );
+    event.stopPropagation();
   };
+
+  const decreaseItem = (event) => {
+    dispatch(cartActions.removeItem(id));
+    event.stopPropagation();
+  };
+
+  const deleteItem = (event) => {
+    dispatch(cartActions.deleteItem(id));
+    event.stopPropagation();
+  };
+
+  function convertMoney(num) {
+    return num.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+    });
+  }
   return (
     <tr>
       <td className="text-center cart__img-box">
         <img src={image01} alt="" />
       </td>
       <td className="text-center">{title}</td>
-      <td className="text-center">${price}</td>
-      <td className="text-center">{quantity}px</td>
+      <td className="text-center price">{convertMoney(price)}</td>
+      <td className="text-center ">
+        <div className="subquanci">
+          <span className="decrease__btn" onClick={decreaseItem}>
+            <i className="ri-subtract-line"></i>
+          </span>
+          <div className="qtyy">{quantity}px</div>
+
+          <span className="increase__btn" onClick={incrementItem}>
+            <i className="ri-add-line"></i>
+          </span>
+        </div>
+      </td>
       <td className="text-center cart__item-del">
-        <i className="ri-delete-bin-line" onClick={deleteItem}></i>
+        <span className="increase__bt" onClick={deleteItem}>
+          <i className="ri-delete-bin-line"></i>
+        </span>
       </td>
     </tr>
   );

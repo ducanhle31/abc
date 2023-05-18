@@ -5,7 +5,9 @@ import ReactStars from "react-rating-stars-component";
 
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shopping-cart/cartSlice";
-
+  import { ToastContainer, toast } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
+  
 import { Link } from "react-router-dom";
 
 const TopProductCard = (props) => {
@@ -32,6 +34,18 @@ const TopProductCard = (props) => {
       currency: "VND",
     });
   }
+
+  const notify = () =>
+    toast.success("Sản phẩm đã được thêm vào giỏ", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   return (
     <div>
       <div className="product-card top-product-card">
@@ -72,12 +86,15 @@ const TopProductCard = (props) => {
             <del className="del">{convertMoney(del)}</del>
             <data className="price product__price">{convertMoney(price)}</data>
           </div>
-          <button
-            onClick={addToCart}
-            className="btn btn-primary btn__add__to__cart"
-          >
-            Thêm vào giỏ
-          </button>
+          <span onClick={notify}>
+            {" "}
+            <button
+              onClick={addToCart}
+              className="btn btn-primary btn__add__to__cart"
+            >
+              Thêm vào giỏ
+            </button>
+          </span>
         </div>
       </div>
     </div>

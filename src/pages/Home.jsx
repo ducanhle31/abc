@@ -112,6 +112,9 @@ useEffect(() => {
             <Swiper
               spaceBetween={30}
               loop={true}
+              pagination={{
+                clickable: true,
+              }}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
@@ -128,7 +131,7 @@ useEffect(() => {
                 },
               }}
               navigation={true}
-              modules={[Autoplay, Navigation]}
+              modules={[Autoplay, Navigation, ]}
               className="mySwiper"
             >
               <SwiperSlide>

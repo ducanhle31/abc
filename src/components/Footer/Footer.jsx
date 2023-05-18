@@ -1,10 +1,12 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
+ import { ToastContainer, toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 
 
 const Footer = () => {
+   const notify = () => toast("Wow so easy!");
   return (
     <div>
       <section className="section newsletter">
@@ -21,9 +23,14 @@ const Footer = () => {
               required=""
               className="input-email"
             />
-            <button type="submit" className="btn btn-primary btnn">
+            <button
+              type="submit"
+              onClick={notify}
+              className="btn btn-primary btnn"
+            >
               <span>Đăng ký</span>
             </button>
+            <ToastContainer />
           </form>
         </div>
       </section>

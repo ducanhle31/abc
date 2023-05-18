@@ -21,6 +21,9 @@ const Carts = () => {
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
   };
+  
+
+
   return (
     <div className="cart__container" onClick={toggleCart}>
       <ListGroup onClick={(event) => event.stopPropagation()} className="cart">
@@ -35,9 +38,11 @@ const Carts = () => {
             <h6 className="text-cente">Không có sản phẩm nào trong giỏ</h6>
           ) : (
             cartProducts.map((item, index) => (
-              <CartItem  item={item} key={index} onClose={toggleCart} />
+              <CartItem item={item} key={index} onClose={toggleCart} />
             ))
           )}
+
+    
         </div>
 
         <div className="cart__bottom ">
