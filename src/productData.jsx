@@ -34,4 +34,26 @@ export default [
     img: "https://www.91-img.com/gallery_images_uploads/3/d/3df5ca6a9b470f715b085991144a5b76e70da975.JPG?tr=h-550,w-0,c-at_max",
     quantity: 1,
   },
+  {
+    id: 6,
+    title: "MacBook Pro",
+    price: 1749,
+    img: "https://i.dummyjson.com/data/products/6/thumbnail.png",
+    quantity: 1,
+  },
+  {
+    id: 7,
+    title: "Samsung Galaxy Book",
+    price: 1499,
+    img: "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    quantity: 1,
+  },
+  {
+    id: 8,
+    title: "Microsoft Surface Laptop 4",
+    price: 1499,
+
+    img: "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+    quantity: 1,
+  },
 ];
